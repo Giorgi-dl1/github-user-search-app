@@ -1,38 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --text-color-light: #4b6a9b;
+  --text-color-dark: #222731;
+  --background-color: #f6f8ff;
+  --preview-dark-color: #2b3442;
+  --text-color-very-light: #4b6a9b;
+  --secondary-background: #fefefe;
+  --mode-hover-color: #222731;
+  --box-shadow: 0px 16px 30px -10px #4660bb33;
+  --filter-value: brightness(0.1);
+  --join-date-color: #697c9a;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.darktheme {
+  --background-color: #141d2f;
+  --text-color-dark: #ffffff;
+  --secondary-background: #1e2a47;
+  --box-shadow: 0 0 0 0 transparent;
+  --text-color-light: #ffffff;
+  --mode-hover-color: #90a4d4;
+  --filter-value: brightness(0.5);
+  --preview-dark-color: #ffffff;
+  --text-color-very-light: #ffffff;
+  --join-date-color: #ffffff;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
+  font-family: "Space Mono", sans-serif;
+  transition: 0.5s;
+  background-color: var(--background-color);
+  padding-bottom: 3rem;
+}
+.app-wrapper {
+  width: 730px;
+  max-width: 90vw;
+}
+.header-modeC {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+.mode-control {
+  display: flex;
+  gap: 1rem;
+  color: var(--text-color-light);
+  font-size: 700;
+  font-size: 13px;
+  transition: 0.5s;
+  cursor: pointer;
+  letter-spacing: 2.5px;
+}
+.mode-control span {
+  display: flex;
+}
+.header-modeC h1 {
+  color: var(--text-color-dark);
+}
+.mode-control span img {
+  width: 20px;
+  height: 20px;
+  transition: 0.5s;
+}
+
+.mode-control:hover {
+  color: var(--mode-hover-color);
+}
+.mode-control:hover span img {
+  filter: var(--filter-value);
+}
+
+.input-wrapper {
+  position: relative;
+  margin: 35px 0 24px 0;
+}
+.input-wrapper input {
+  width: 100%;
+  font-size: 18px;
+  padding: 22px 0 22px 80px;
+  border: none;
+  outline: none;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  background-color: var(--secondary-background);
+  color: var(--text-color-dark);
+  line-height: 25px;
+}
+.input-wrapper input::placeholder {
+  color: var(--text-color-light);
+}
+.search-icon {
+  position: absolute;
+  top: 23px;
+  left: 32px;
+}
+.search-button {
+  position: absolute;
+  top: 9.5px;
+  right: 5px;
+  padding: 13px 24px;
+  line-height: 24px;
+  background-color: #0079ff;
+  border: none;
+  border-radius: 7px;
   color: white;
+  cursor: pointer;
+  transition: 0.5s;
 }
-
-.App-link {
-  color: #61dafb;
+.search-button:hover {
+  background-color: #60abff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+  position: absolute;
+  top: 22px;
+  right: 120px;
+  font-weight: bold;
+  color: #f74646;
+}
+.loading-box {
+  display: grid;
+  place-content: center;
+  font-size: 2.5rem;
+  color: var(--text-color-dark);
 }
